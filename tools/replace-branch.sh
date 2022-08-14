@@ -3,7 +3,7 @@
 current_branch=''$1''
 target_branch=''$2''
 # comma separated list
-platform_owners_overlays="cluster1"
+platform_owners_overlays="cluster"
 
 # check to see if current branch variable was passed through, if not prompt for it
 if [[ ${current_branch} == "" ]]
