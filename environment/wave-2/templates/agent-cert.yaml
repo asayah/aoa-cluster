@@ -7,7 +7,7 @@ spec:
   commonName: gloo-mesh-agent-cluster
   dnsNames:
     # Must match the cluster name used in the helm chart install
-    - {{ .Values.cluster_name }}
+    - "{{ .Values.cluster_name }}"
   # 1 year life
   duration: 8760h0m0s
   issuerRef:
