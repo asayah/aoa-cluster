@@ -54,6 +54,9 @@ then
 fi
 
 
+# Register cluster
+cluster_name=$cluster_name mgmt_context=$mgmt_context $SCRIPTDIR/tools/register-cluster.sh ;
+
 # check to see if defined contexts exist
 if [[ $(kubectl config get-contexts | grep ${mgmt_context}) == "" ]] || [[ $(kubectl config get-contexts | grep ${cluster_context}) == "" ]]; then
   echo "Check Failed: Either ${mgmt_context} or ${cluster_context} context does not exist. Please check to see if you have the clusters available"
