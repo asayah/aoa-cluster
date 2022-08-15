@@ -19,8 +19,8 @@ gloo_mesh_version="2.0.9"
 # Checking if pending changes
 
 pending_changes=`git status -s`
-pending_commits=`git --no-pager log $branch --not --remotes --decorate=short --pretty=oneline -n1`
-remote_commits=`git --no-pager log origin/$branch --not --remotes --decorate=short --pretty=oneline -n1`
+pending_commits=`git show --no-notes --format=format:"%H" $branch | head -n 1`
+remote_commits=`git show --no-notes --format=format:"%H" origin/$branch | head -n 1`
 
 
 if [ "$pending_changes-$pending_commits-$remote_commits" = "--" ]; then
