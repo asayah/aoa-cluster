@@ -26,5 +26,6 @@ Do you want to continue [Y/N] ?
 ```
 
 # TODO
+ - Add more details in readme
 
 
