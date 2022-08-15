@@ -5,7 +5,7 @@ Clone this repo - and create a branch for your work, then you can modify the wav
 ```bash 
 ./deploy.sh <cluster_name> <cluster_context> <mgmt_context>
 ```
-Then verify if the configuration is correct, then enter Y/N: 
+Verify if the configuration is correct, and enter Y/N: 
 
 ```
 ----------------------------------------
