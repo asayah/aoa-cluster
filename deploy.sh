@@ -19,11 +19,12 @@ gloo_mesh_version="2.0.9"
 # Checking if pending changes
 
 pending_changes=`git status -s`
-pending_commits=`git show --no-notes --format=format:"%H" $branch | head -n 1`
-remote_commits=`git show --no-notes --format=format:"%H" origin/$branch | head -n 1`
+pending_commits=`git --no-pager log $branch --not --remotes --decorate=short --pretty=oneline -n1`
+last_local_commit=`git show --no-notes --format=format:"%H" $branch | head -n 1`
+last_remote_commit=`git show --no-notes --format=format:"%H" origin/$branch | head -n 1`
 
 
-if [ "$pending_changes-$pending_commits-$remote_commits" = "--" ]; then
+if [ "$pending_changes-$pending_commits" = "-" ] && [ "$last_remote_commit" = "$last_remote_commit" ]; then
   echo -e "\xE2\x9C\x94" "- Your local branch is in sync with the remote repository"
 else 
   echo -e "\xE2\x9D\x8C" "- Your local branch is not in sync with the remote repository"
