@@ -17,7 +17,7 @@ gloo_mesh_version="2.0.9"
 
 
 # Checking if pending changes
-git remote update
+git remote update  > /dev/null 2>&1
 pending_changes=`git status -s`
 pending_commits=`git --no-pager log $branch --not --remotes --decorate=short --pretty=oneline -n1`
 last_local_commit=`git show --no-notes --format=format:"%H" $branch | head -n 1`
