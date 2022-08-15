@@ -24,7 +24,7 @@ last_local_commit=`git show --no-notes --format=format:"%H" $branch | head -n 1`
 last_remote_commit=`git show --no-notes --format=format:"%H" origin/$branch | head -n 1`
 
 
-if [ "$pending_changes-$pending_commits" = "-" ] && [ "$last_remote_commit" = "$last_remote_commit" ]; then
+if [ "$pending_changes-$pending_commits" = "-" ] && [ "$last_local_commit" = "$last_remote_commit" ]; then
   echo -e "\xE2\x9C\x94" "- Your local branch is in sync with the remote repository"
 else 
   echo -e "\xE2\x9D\x8C" "- Your local branch is not in sync with the remote repository"
