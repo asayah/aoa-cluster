@@ -1,14 +1,7 @@
 #!/bin/bash
 #set -e
 
-# replace the parameter below with your designated cluster context
-# note that the character '_' is an invalid value
-#
-# please use `kubectl config rename-contexts <current_context> <target_context>` to
-# rename your context if necessary
-
-
-
+echo "----------------------------------------"
 echo "Usage: deploy.sh <cluster_name> <cluster_context> <mgmt_context>"
 echo "----------------------------------------"
 
@@ -22,6 +15,20 @@ environment_waves="3"
 gloo_mesh_version="2.0.9"
 
 
+
+# Checking if pending changes
+
+pending_changes=`git status -s`
+pending_changes= `git --no-pager log  --not --remotes --decorate=short --pretty=oneline -n1`
+
+
+if [[ -z $pending_changes || -z $pending_changes ]]; then
+  echo -e "\xE2\x9D\x8C" "- Your local branch is not in sync with the remote repository"
+  
+else  
+  echo -e "\xE2\x9C\x94" "- Your local branch is in sync with the remote repository"
+fi
+echo "----------------------------------------"
 
 
 SCRIPTDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
